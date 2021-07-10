@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/resources/css/main.css}"/>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<script>
+    function deleteFunc(id) {
+        if (window.confirm('Etes-vous sur de vouloir supprimer cette entrÃ©e ?')) {
+            window.location = '/animal/delete/' + id;
+        }
+    }
+</script>
+<form th:object="${person}" action="/person/create" method="post">
+    <table>
+        <tr>
+            <td><span>FirstName</span> :</td>
+            <td>
+                <input type="text" th:field="*{firstname}"/>&nbsp;<span th:if="${#fields.hasErrors('firstname')}"
+                                                                        th:errors="*{firstname}"
+                                                                        class="errorText">Error</span>
+            </td>
+        </tr>
+        <tr>
+            <td><span>LastName</span> :</td>
+            <td>
+                <input type="text" th:field="*{lastname}"/>&nbsp;<span th:if="${#fields.hasErrors('lastname')}"
+                                                                       th:errors="*{lastname}"
+                                                                       class="errorText">Error</span>
+            </td>
+        </tr>
+        <tr>
+            <td><span>Age</span> :</td>
+            <td>
+                <input type="text" th:field="*{age}"/>&nbsp;<span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"
+                                                                  class="errorText">Error</span>
+            </td>
+        </tr>
+        <tr>
+            <td><span>Animals</span> :</td>
+            <td>
+                <div th:each="animal : ${person.animals}" th:text="${animal.name}">
+                    <a th:href="'javascript:deleteFunc(' + ${animal.id} +');'">
+                        <img height="16" width="16" th:src="@{/resources/img/delete.png}"/>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><span>Add animal</span> :</td>
+            <td>
+                <select name="animal" id="animal-select">
+                    <option th:each="animal : ${animals}" th:text="${animal.name}" th:value="${animal.id}"></option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <p></p>
+    <input type="submit" class="button" value="Sauver"/>&nbsp;
+    <input type="hidden" th:field="*{id}"/>&nbsp;
+    <input type="button" class="button" value="Retour" onclick="window.location='/persons'"/>&nbsp;
+</form>
+</body>
+</html>

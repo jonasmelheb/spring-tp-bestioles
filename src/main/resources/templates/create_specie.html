@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/resources/css/main.css}"/>
+    <meta charset="utf-8">
+</head>
+<body>
+<form th:object="${specie}" action ="/specie/create" method="post">
+    <table>
+        <tr><td><span>Common Name</span> : </td><td>
+            <input type="text" th:field="*{commonName}"/>&nbsp;<span th:if="${#fields.hasErrors('commonName')}" th:errors="*{commonName}" class="errorText">Error</span>
+        </td></tr>
+        <tr><td><span>Latin Name</span> : </td><td>
+            <input type="text" th:field="*{latinName}"/>&nbsp;<span th:if="${#fields.hasErrors('latinName')}" th:errors="*{latinName}" class="errorText">Error</span>
+        </td></tr>
+    </table>
+    <p></p>
+    <input type="submit" class="button" value="Sauver"/>&nbsp;
+    <input type="hidden" th:field="*{id}"/>&nbsp;
+    <input type="button" class="button" value="Retour" onclick="window.location='/specie'"/>&nbsp;
+</form>
+</body>
+</html>

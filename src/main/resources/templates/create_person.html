@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/resources/css/main.css}"/>
+    <meta charset="utf-8">
+</head>
+<body>
+<form th:object="${person}" action ="/animal/create" method="post">
+    <table>
+        <tr><td><span>firstname</span> : </td><td>
+            <input type="text" th:field="*{firstname}"/>&nbsp;<span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}" class="errorText">Error</span>
+        </td></tr>
+        <tr><td><span>lastname</span> : </td><td>
+            <input type="text" th:field="*{lastname}"/>&nbsp;<span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}" class="errorText">Error</span>
+        </td></tr>
+        <tr><td><span>age</span> : </td><td>
+            <input type="text" th:field="*{age}"/>&nbsp;<span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="errorText">Error</span>
+        </td></tr>
+        <tr><td><span>specie</span> : </td><td>
+            <label>
+                <select th:field="*{animals}">
+                    <option value="">--Please choose--</option>
+                    <option  th:each="animal : ${animals}" th:value="${animal.id}" th:text="${animal.name}"></option>
+                </select>
+            </label>
+        </td></tr>
+    </table>
+    <p></p>
+    <input type="submit" class="button" value="Sauver"/>&nbsp;
+    <input type="hidden" th:field="*{id}"/>&nbsp;
+    <input type="button" class="button" value="Retour" onclick="window.location='/person'"/>&nbsp;
+</form>
+</body>
+</html>

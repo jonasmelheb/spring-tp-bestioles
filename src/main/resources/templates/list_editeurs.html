@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/resources/css/main.css}"/>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function toCreate() {
+        window.location='/editeur/create/0';
+    }
+    function editFunc(id) {
+        window.location='/editeur/create/'+id;
+    }
+    function deleteFunc(id) {
+        if (window.confirm('Etes-vous sur de vouloir supprimer cette entrée ?')) {
+            window.location='/editeur/delete/'+id;
+        }
+    }
+</script>
+<span class="bigText" th:text=""></span>
+<table class="mainTable">
+    <thead>
+    <tr>
+        <th style="width: 50%;"><span th:text=Id></span></th>
+        <th style="width: 50%;"><span th:text=Nom></span></th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="editeur : ${editeurs}">
+        <td th:text="${editeur.id}"/>
+        <td th:text="${editeur.nom}"/>
+        <td><a th:href="'javascript:deleteFunc(' + ${editeur.id} +');'"><img height="16" width="16" th:src="@{/resources/img/delete.png}" /></a></td>
+        <td><a th:href="'javascript:editFunc(' + ${editeur.id} +');'"><img height="16" width="16" th:src="@{/resources/img/edit.png}" /></a></td>
+    </tr>
+    </tbody>
+</table>
+<p></p>
+<input type="button" class="button" value="Créer" onclick="toCreate()">&nbsp;<p/><p/>
+</body>
+</html>
