@@ -1,7 +1,7 @@
 package fr.diginamic.springWeb.RestController;
 
-import fr.diginamic.springWeb.domain.Specie;
-import fr.diginamic.springWeb.service.SpecieService;
+import fr.diginamic.springWeb.Domain.Specie;
+import fr.diginamic.springWeb.Service.SpecieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

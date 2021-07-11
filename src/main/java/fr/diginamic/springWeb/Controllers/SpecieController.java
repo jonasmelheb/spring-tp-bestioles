@@ -1,7 +1,7 @@
 package fr.diginamic.springWeb.Controllers;
 
-import fr.diginamic.springWeb.domain.Specie;
-import fr.diginamic.springWeb.service.SpecieService;
+import fr.diginamic.springWeb.Domain.Specie;
+import fr.diginamic.springWeb.Service.SpecieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

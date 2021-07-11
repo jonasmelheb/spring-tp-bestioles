@@ -1,11 +1,9 @@
 package fr.diginamic.springWeb.Controllers;
 
-import fr.diginamic.springWeb.domain.Animal;
-import fr.diginamic.springWeb.domain.Person;
-import fr.diginamic.springWeb.domain.Specie;
-import fr.diginamic.springWeb.service.AnimalService;
-import fr.diginamic.springWeb.service.PersonService;
-import fr.diginamic.springWeb.service.SpecieService;
+import fr.diginamic.springWeb.Domain.Animal;
+import fr.diginamic.springWeb.Domain.Person;
+import fr.diginamic.springWeb.Service.AnimalService;
+import fr.diginamic.springWeb.Service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

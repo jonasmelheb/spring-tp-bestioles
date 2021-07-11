@@ -1,7 +1,7 @@
 package fr.diginamic.springWeb.RestController;
 
-import fr.diginamic.springWeb.domain.Animal;
-import fr.diginamic.springWeb.service.AnimalService;
+import fr.diginamic.springWeb.Domain.Animal;
+import fr.diginamic.springWeb.Service.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
